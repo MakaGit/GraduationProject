@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIPanel : MonoBehaviour
 {
-    private static float fadeTime = 0.2f;
+    private static float fadeTime = 0.35f;
 
     [SerializeField] private CanvasGroup canvasGroup;
 

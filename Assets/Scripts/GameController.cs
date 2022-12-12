@@ -3,6 +3,8 @@ using Zenject;
 
 public class GameController : MonoBehaviour
 {
+    private static float EndTimeDelay = 1f;
+
     private EndLevelTrigger endLevelTrigger;
     private UIManager uIManager;
     private SaveSystem saveSystem;
@@ -33,6 +35,14 @@ public class GameController : MonoBehaviour
     {
         inputSystem.SetActive(false);
 
+        if (collectedStars > 0)
+            endLevelTrigger.PlayAnimation();
+
+        Invoke("EndDelay", EndTimeDelay);
+    }
+
+    private void EndDelay()
+    {
         if (collectedStars > 0)
         {
             uIManager.ActivateEndgamePopup(true, collectedStars);

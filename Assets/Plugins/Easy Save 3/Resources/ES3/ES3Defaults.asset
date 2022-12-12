@@ -31,9 +31,9 @@ MonoBehaviour:
     assemblyNames:
     - Zenject
     - Assembly-CSharp-firstpass
+    - Assembly-CSharp
     - Cinemachine
     - Zenject-IntegrationTests
-    - Assembly-CSharp
     - Zenject-TestFramework
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0

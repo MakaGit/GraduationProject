@@ -6,6 +6,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private EndgamePopup succesPanel;
     [SerializeField] private EndgamePopup failedPanel;
 
+    [SerializeField] private SettingsPanel settingsPanel;
+
+    public SettingsPanel SettingsPanel => settingsPanel;
+
     private void Start()
     {
         SetActiveUI(true);

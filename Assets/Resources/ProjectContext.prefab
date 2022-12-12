@@ -106,3 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c320d7c03bd7c8b4884ec44bb4790e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 7847313246193821761, guid: af3e6ae22d8ba194c9e834c30bd415dc, type: 3}

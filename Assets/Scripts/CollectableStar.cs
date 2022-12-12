@@ -1,11 +1,20 @@
+using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 public class CollectableStar : MonoBehaviour
 {
     [SerializeField] private Collider trigger;
+
+    [SerializeField] private ParticleSystem beamParticle;
+    [SerializeField] private ParticleSystem glowParticle;
+    [SerializeField] private ParticleSystem sparkleParticle;
+    [SerializeField] private ParticleSystem shadowParticle;
+
+    [SerializeField] private ParticleSystem confettiParticle;
+
+    [SerializeField] private Transform startTransform;
 
     private GameController gameController;
 
@@ -31,6 +40,21 @@ public class CollectableStar : MonoBehaviour
 
     private void PlayAnimation()
     {
-        gameObject.SetActive(false);
+        StartCoroutine(Animation());
     }    
+
+    private IEnumerator Animation()
+    {
+        confettiParticle.Play();
+        beamParticle.Stop();
+        glowParticle.Stop();
+        sparkleParticle.Stop();
+        shadowParticle.Stop();  
+
+        startTransform.DOScale(0f, 0.35f).SetEase(Ease.InQuart);
+
+        yield return new WaitForSeconds(3f);
+
+        gameObject.SetActive(false);
+    }
 }

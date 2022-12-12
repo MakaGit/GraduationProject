@@ -6,6 +6,9 @@ public class SaveSystem
     private static string SaveKey = "Level_";
     private static string MaxLevelUnlockedKey = "MaxLevel_";
     private static string SarsCount = "StarsCount_";
+    private static string MusicState = "MusicState_";
+    private static string SFXState = "SFXState_";
+    private static string Volume = "Volume_";
 
     public void Save(int collectedStarsCount)
     {
@@ -55,6 +58,36 @@ public class SaveSystem
     public int GetMaxStarsCount()
     {
         return ES3.Load(SarsCount, 0);
+    }
+
+    public void SaveMusicState(bool state)
+    {
+        ES3.Save(MusicState, state);
+    }
+
+    public bool LoadMusicState()
+    {
+        return ES3.Load(MusicState, true);
+    }
+
+    public void SaveSFXState(bool state)
+    {
+        ES3.Save(SFXState, state);
+    }
+
+    public bool LoadSFXState()
+    {
+        return ES3.Load(SFXState, true);
+    }
+
+    public void SaveVolume(float volume)
+    {
+        ES3.Save(Volume, volume);
+    }
+
+    public float LoadVolume()
+    {
+        return ES3.Load(Volume, 1f);
     }
 
     private void SetMaxUnlockedLevel(int level)
